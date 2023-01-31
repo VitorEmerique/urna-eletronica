@@ -4,8 +4,8 @@ import com.ufopinha.dao.EleitorDAO;
 import com.ufopinha.models.Eleitor;
 
 public class Administrador {
-    public void registrarEleitor(String nome, String titulo) {
+    public void registrarEleitor(String nome, String cpf, String titulo, Integer zona, Integer secao) {
         EleitorDAO eleitorDao = new EleitorDAO();
-        eleitorDao.create(new Eleitor(nome, titulo));
+        eleitorDao.create(new Eleitor(nome, cpf, titulo, zona, secao));
     }
 }

@@ -38,9 +38,9 @@ public class App extends Application {
 
         Administrador administrador = new Administrador();
 
-        administrador.registrarEleitor("lucas", "123");
+        administrador.registrarEleitor("lucas", "34254387689", "123", 22, 33);
         System.out.println("Hello!");
-        launch();
+        //launch();
     }
 
 }
