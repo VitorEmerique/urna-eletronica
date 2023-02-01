@@ -3,35 +3,53 @@ package com.ufopinha.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Connection;
 
 import com.ufopinha.models.Pessoa;
+import com.ufopinha.utils.SQLiteJDBCDriverConnection;
 
-public class PessoaDAO extends SQLiteJDBCDriverConnection {
+public class PessoaDAO {
+    protected SQLiteJDBCDriverConnection database;
+
     public PessoaDAO () {
-        super();
+        this.database = new SQLiteJDBCDriverConnection();
 
         try {
-            Statement statement = connection.createStatement();
+            Connection conn = database.connect();
 
-            statement.execute("CREATE TABLE IF NOT EXISTS pessoa ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR, cpf VARCHAR )");
+            Statement statement = conn.createStatement();
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+            statement.execute("CREATE TABLE IF NOT EXISTS pessoa ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR, cpf VARCHAR unique )");
+
+            conn.close();
+
+        } catch (Exception e) { System.out.println(e); }
     } 
 
-    public ResultSet create(Pessoa eleitor) {
-        PreparedStatement statement;
-
+    public Integer create(Pessoa eleitor) {
         try {
-            statement = connection.prepareStatement("insert into pessoa (nome, cpf) values (?, ?)", Statement.RETURN_GENERATED_KEYS);
+
+            PreparedStatement statement;
+
+            Connection conn = database.connect();
+
+            statement = conn.prepareStatement("insert into pessoa (nome, cpf) values (?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, eleitor.getNome());
             statement.setString(2, eleitor.getCpf());
             statement.execute();
 
-            return statement.getGeneratedKeys();
+            ResultSet result = statement.getGeneratedKeys();
+
+            Integer id = result.getInt(1);
+
+            conn.close();
+
+            return id;
+
+            
 
         } catch (Exception e) {
+            System.out.println(e);
             return null;
         }
     }

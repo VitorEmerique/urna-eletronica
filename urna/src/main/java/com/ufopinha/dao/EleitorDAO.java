@@ -1,6 +1,7 @@
 package com.ufopinha.dao;
 
 import com.ufopinha.models.Eleitor;
+
 import java.sql.*;
 
 public class EleitorDAO extends PessoaDAO {
@@ -8,33 +9,41 @@ public class EleitorDAO extends PessoaDAO {
         super();
 
         try {
-            Statement statement = connection.createStatement();
+            Connection conn = super.database.connect();
 
-            statement.execute("CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, id_pessoa INTEGER, titulo VARCHAR, zona INTEGER, secao INTEGER, foreign key(id_pessoa) references pessoa(id) )");
+            Statement statement = conn.createStatement();
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+            statement.execute("CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, id_pessoa INTEGER, titulo VARCHAR unique, zona INTEGER, secao INTEGER, foreign key(id_pessoa) references pessoa(id) )");
+
+            conn.close();
+
+        } catch (Exception e) { System.out.println(e); }
     }
 
     public void create(Eleitor eleitor) {
         try {
 
-            PreparedStatement statement;
-            ResultSet resultado = super.create(eleitor);
+            Connection conn = super.database.connect();
 
-            System.out.println(resultado.getInt(1));
+            PreparedStatement statement;
+
             
-            statement = connection.prepareStatement("insert into eleitor (titulo, id_pessoa, zona, secao) values (?, ?, ?, ?)");
+            Integer id = super.create(eleitor);
+
+            System.out.println(id);
+
+            System.out.println("aq");
+            
+            statement = conn.prepareStatement("insert into eleitor (titulo, id_pessoa, zona, secao) values (?, ?, ?, ?)");
             statement.setString(1, eleitor.getTitulo());
-            statement.setInt(2, resultado.getInt(1));
+            statement.setInt(2, id);
             statement.setInt(3, eleitor.getZona());
             statement.setInt(4, eleitor.getSecao());
             statement.execute();
 
-        } catch (Exception e) {
-            System.out.println("error");
-        }
+            conn.close();
+
+        } catch (Exception e) { System.out.println(e); }
     }
 
 }
