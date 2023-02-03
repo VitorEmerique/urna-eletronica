@@ -1,4 +1,4 @@
-package com.ufopinha.dao;
+package com.ufopinha.daos;
 
 import com.ufopinha.models.Eleitor;
 
@@ -13,7 +13,7 @@ public class EleitorDAO extends PessoaDAO {
 
             Statement statement = conn.createStatement();
 
-            statement.execute("CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, id_pessoa INTEGER, titulo VARCHAR unique, zona INTEGER, secao INTEGER, foreign key(id_pessoa) references pessoa(id) )");
+            statement.execute("CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, titulo VARCHAR unique, zona INTEGER, secao INTEGER, foreign key(id) references pessoa(id) )");
 
             conn.close();
 
@@ -34,9 +34,9 @@ public class EleitorDAO extends PessoaDAO {
 
             System.out.println("aq");
             
-            statement = conn.prepareStatement("insert into eleitor (titulo, id_pessoa, zona, secao) values (?, ?, ?, ?)");
-            statement.setString(1, eleitor.getTitulo());
-            statement.setInt(2, id);
+            statement = conn.prepareStatement("insert into eleitor (id, titulo, zona, secao) values (?, ?, ?, ?)");
+            statement.setInt(1, id);
+            statement.setString(2, eleitor.getTitulo());       
             statement.setInt(3, eleitor.getZona());
             statement.setInt(4, eleitor.getSecao());
             statement.execute();

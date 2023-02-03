@@ -1,4 +1,4 @@
-package com.ufopinha.dao;
+package com.ufopinha.daos;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,13 +6,13 @@ import java.sql.Statement;
 import java.sql.Connection;
 
 import com.ufopinha.models.Pessoa;
-import com.ufopinha.utils.SQLiteJDBCDriverConnection;
+import com.ufopinha.utils.SQLiteConnection;
 
 public class PessoaDAO {
-    protected SQLiteJDBCDriverConnection database;
+    protected SQLiteConnection database;
 
     public PessoaDAO () {
-        this.database = new SQLiteJDBCDriverConnection();
+        this.database = new SQLiteConnection();
 
         try {
             Connection conn = database.connect();

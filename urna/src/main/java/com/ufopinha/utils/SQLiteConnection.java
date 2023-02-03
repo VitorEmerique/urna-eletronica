@@ -2,8 +2,8 @@ package com.ufopinha.utils;
 
 import java.sql.*;
 
-public class SQLiteJDBCDriverConnection { 
-    public SQLiteJDBCDriverConnection() {
+public class SQLiteConnection { 
+    public SQLiteConnection() {
 
     }  
 

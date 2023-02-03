@@ -1,6 +1,6 @@
 package com.ufopinha.controllers;
 
-import com.ufopinha.dao.EleitorDAO;
+import com.ufopinha.daos.EleitorDAO;
 import com.ufopinha.models.Eleitor;
 
 public class Administrador {
