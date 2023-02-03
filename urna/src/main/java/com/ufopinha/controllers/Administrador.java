@@ -14,4 +14,9 @@ public class Administrador {
         CandidatoDAO candidato = new CandidatoDAO();
         eleitorDao.create(new Eleitor(nome, cpf, titulo, zona, secao));
     }
+
+    public void deleteEleitor(String titulo) {
+        EleitorDAO eleitor = new EleitorDAO();
+        eleitor.delete(titulo);
+    }
 }
