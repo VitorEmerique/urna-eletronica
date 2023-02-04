@@ -12,6 +12,7 @@ import java.sql.Statement;
 
 import com.ufopinha.controllers.Administrador;
 import com.ufopinha.daos.PartidoDAO;
+import com.ufopinha.models.Eleicao;
 import com.ufopinha.models.Partido;
 import com.ufopinha.utils.CreateTables;
 import com.ufopinha.utils.SQLiteConnection;
@@ -46,20 +47,20 @@ public class App extends Application {
 
         CreateTables.createTables();
 
-        //administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
+        administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
         administrador.registrarPartido("partidao do mingao", 22);
 
-        //administrador.registrarCandidato("luc", "123", "456", 22, 33);
+        // administrador.registrarCandidato("luc", "123", "456", 22, 33);
 
         administrador.registrarCargo("Presidente da República");
         administrador.registrarCargo("Governador");
         administrador.registrarCargo("Senador");
         administrador.registrarCargo("Deputado Federal");
-        administrador.registrarCargo("Deputado Estadual"); 
+        administrador.registrarCargo("Deputado Estadual");
 
         administrador.registrarCandidato("biroliro", "taok", "hghgh", 22, 33, 22, 1, 22);
+        administrador.registraEleicao("vitor");
 
-        System.out.println("Hello!");
         // launch();
     }
 

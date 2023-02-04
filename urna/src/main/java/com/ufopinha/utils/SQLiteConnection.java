@@ -2,7 +2,7 @@ package com.ufopinha.utils;
 
 import java.sql.*;
 
-public class SQLiteConnection { 
+public class SQLiteConnection {
     public Connection connect() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/java/com/ufopinha/database.db");
@@ -17,4 +17,3 @@ public class SQLiteConnection {
     }
 
 }
-
