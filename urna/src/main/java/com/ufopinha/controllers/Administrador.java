@@ -1,22 +1,22 @@
 package com.ufopinha.controllers;
 
 import com.ufopinha.daos.EleitorDAO;
-import com.ufopinha.daos.PartidoDAO;
 import com.ufopinha.models.Eleitor;
-import com.ufopinha.daos.CandidatoDAO;
-import com.ufopinha.daos.CargoDAO;
 
 public class Administrador {
     public void registrarEleitor(String nome, String cpf, String titulo, Integer zona, Integer secao) {
         EleitorDAO eleitorDao = new EleitorDAO();
-        CargoDAO cargo = new CargoDAO();
-        PartidoDAO partido = new PartidoDAO();
-        CandidatoDAO candidato = new CandidatoDAO();
-        eleitorDao.create(new Eleitor(nome, cpf, titulo, zona, secao));
+        
+        try { eleitorDao.register(new Eleitor(nome, cpf, titulo, zona, secao)); }
+        catch (Exception e) { System.out.println(e.getMessage()); }
+        
     }
 
-    public void deleteEleitor(String titulo) {
-        EleitorDAO eleitor = new EleitorDAO();
-        eleitor.delete(titulo);
-    }
+    /*public registrarCandidato(String nome, String cpf, String titulo, Integer zona, Integer secao, Integer numero, Cargo cargo, Partido partido) {
+        CandidatoDAO candidatoDao = new CandidatoDAO();
+        
+        candidatoDao.create();
+
+    }*/
+
 }

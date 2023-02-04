@@ -7,8 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Statement;
 
 import com.ufopinha.controllers.Administrador;
+import com.ufopinha.utils.CreateTables;
+import com.ufopinha.utils.SQLiteConnection;
 
 /**
  * JavaFX App
@@ -38,8 +42,11 @@ public class App extends Application {
 
         Administrador administrador = new Administrador();
 
+        CreateTables.createTables();
+
         //administrador.deleteEleitor("43");
-        administrador.registrarEleitor("luc", "123", "456", 22, 33);
+        administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
+        //administrador.registrarEleitor("luc", "123", "456", 22, 33);
         System.out.println("Hello!");
         // launch();
     }

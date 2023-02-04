@@ -1,22 +1,33 @@
 package com.ufopinha.daos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
+import com.ufopinha.models.Candidato;
+
 public class CandidatoDAO extends EleitorDAO {
-    public CandidatoDAO() {
-        super();
+    public void register(Candidato candidato)  throws Exception { 
+        Connection conn = super.database.connect();
 
-        try {
-            Connection conn = super.database.connect();
+        PreparedStatement statement;
+        System.out.println("aq");
 
-            Statement statement = conn.createStatement();
+        Integer id = super.register(candidato);
 
-            statement.execute("CREATE TABLE IF NOT EXISTS candidato ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR,numero INTEGER unique, id_cargo INTEGER, id_partido INTEGER, foreign key(id_cargo) references cargo(id), foreign key(id_partido) references partido(id) )");
+        System.out.println(id);
 
-            conn.close();
+        System.out.println("aq");
 
-        } catch (Exception e) { System.out.println(e); }
+        statement = conn.prepareStatement("insert into candidato (id, numero, id_cargo, id_partido) values (?, ?, ?)");
+        statement.setInt(1, id);
+        statement.setInt(2, candidato.getNumero());
+        statement.setInt(3, candidato.getCargo().getId());
+        statement.setInt(4, candidato.getPartido().getId());
+        statement.execute();
+
+        conn.close();
+
     }
 
 }
