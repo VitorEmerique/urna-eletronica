@@ -15,7 +15,7 @@ public class EleitorDAO extends PessoaDAO {
             Statement statement = conn.createStatement();
 
             statement.execute(
-                    "CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, titulo VARCHAR unique, zona INTEGER, secao INTEGER, foreign key(id) references pessoa(id) )");
+                    "CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, titulo VARCHAR unique, zona INTEGER, secao INTEGER, foreign key(id) references pessoa(id) ON DELETE CASCADE )");
 
             conn.close();
 

@@ -9,7 +9,7 @@ public class SQLiteConnection {
 
     public Connection connect() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:urna/src/main/java/com/ufopinha/database.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/java/com/ufopinha/database.db");
             System.out.println("conectaod");
 
             return connection;
