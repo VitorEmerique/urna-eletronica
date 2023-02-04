@@ -4,7 +4,7 @@ public class Partido {
     private Integer id, numero;
     private String nome;
 
-    public Partido(Integer numero, String nome) {
+    public Partido(String nome, Integer numero) {
         this.numero = numero;
         this.nome = nome;
     }

@@ -2,7 +2,6 @@ package com.ufopinha.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 
 import com.ufopinha.models.Candidato;
 

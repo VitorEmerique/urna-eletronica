@@ -46,7 +46,15 @@ public class App extends Application {
 
         //administrador.deleteEleitor("43");
         administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
+        administrador.registrarPartido("partidao do mingao", 3);
         //administrador.registrarEleitor("luc", "123", "456", 22, 33);
+
+        administrador.registrarCargo("Presidente da República");
+        administrador.registrarCargo("Governador");
+        administrador.registrarCargo("Senador");
+        administrador.registrarCargo("Deputado Federal");
+        administrador.registrarCargo("Deputado Estadual");
+
         System.out.println("Hello!");
         // launch();
     }
