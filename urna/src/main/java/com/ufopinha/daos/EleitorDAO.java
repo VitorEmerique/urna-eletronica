@@ -26,17 +26,18 @@ public class EleitorDAO extends PessoaDAO {
 
     }
 
-    public Eleitor getEleicaoById(Integer id) throws Exception {
+    public Eleitor getEleitorByTitulo(String titulo) throws Exception {
         Connection conn = this.database.connect();
 
-        PreparedStatement statement = conn.prepareStatement("select * from eleicao where id = (?)");
+        PreparedStatement statement = conn.prepareStatement("select pessoa.id, nome, cpf, titulo, zona, secao from eleitor, pessoa where pessoa.id = eleitor.id and eleitor.titulo = (?)");
 
-        statement.setInt(1, id);
+        statement.setString(1, titulo);
         statement.execute();
 
         ResultSet result = statement.getResultSet();
 
-        Eleitor eleitor = new Eleitor(result.getString("nome"),
+        Eleitor eleitor = new Eleitor(result.getInt(1),
+                result.getString("nome"),
                 result.getString("cpf"),
                 result.getString("titulo"),
                 result.getInt("zona"),

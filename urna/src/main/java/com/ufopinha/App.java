@@ -48,7 +48,9 @@ public class App extends Application {
         CreateTables.createTables();
 
         // administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
-        // administrador.registrarPartido("partidao do mingao", 22);
+        
+        administrador.registrarPartido("partidao do mingao", 22);
+        administrador.registrarPartido("pt partido da", 13);
 
         // administrador.registrarCandidato("luc", "123", "456", 22, 33);
 
@@ -58,10 +60,16 @@ public class App extends Application {
         administrador.registrarCargo("Deputado Federal");
         administrador.registrarCargo("Deputado Estadual");
 
-        // administrador.registrarCandidato("biroliro", "taok", "hghgh", 22, 33, 22, 1,
-        // 22);
-        administrador.registraEleicao("vitor");
-        administrador.registraVoto(1, 1, 1, 2);
+        administrador.registrarEleitor("rei", "575", "987", 88, 99);
+        administrador.registrarEleitor("vit", "358", "243", 88, 99);
+
+        administrador.registrarCandidato("biroliro", "taok", "hghgh", 88, 99, 22, 1, 22);
+        administrador.registrarCandidato("lula mosluc", "picanha", "pinga", 88, 99, 13, 1, 13);
+
+        administrador.registraEleicao("eleicao top 2032");
+
+        administrador.registrarVoto("987", 13);
+        administrador.registrarVoto("243", 22);
 
         // launch();
     }

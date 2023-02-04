@@ -78,14 +78,15 @@ public class Administrador {
         }
     }
 
-    public void registraVoto(Integer numero, Integer id_eleitor, Integer id_partido, Integer id_eleicao) {
+    public void registrarVoto(String titulo, int numero) {
         try {
-            this.votoDAO.register(new Voto(eleitorDao.getEleicaoById(id_eleitor),
-                    partidoDao.getPartidoByNumero(id_partido), eleicaoDAO.getEleicaoById(id_eleicao), numero));
+            votoDAO.register(new Voto(eleitorDao.getEleitorByTitulo(titulo), candidatoDao.getByNumero(numero), partidoDao.getPartidoByNumero(numero)));
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e);
         }
+
+
     }
 
 }

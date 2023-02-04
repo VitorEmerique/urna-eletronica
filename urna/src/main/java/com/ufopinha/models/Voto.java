@@ -4,51 +4,21 @@ public class Voto {
     private Eleitor eleitor;
     private Partido partido;
     private Eleicao eleicao;
-    private Integer numero;
+    private Candidato candidato;
 
-    public Voto(Eleitor eleitor, Partido partido, Eleicao eleicao, Integer numero) {
-        this.eleicao = eleicao;
+    public Voto(Eleitor eleitor, Candidato candidato,Partido partido) {
         this.partido = partido;
+        this.candidato = candidato;
         this.eleitor = eleitor;
-        this.numero = numero;
 
     }
 
-    public Voto(Integer numero) {
-        this.numero = numero;
+    public Eleitor getEleitor() { return this.eleitor; }
 
-    }
+    public Partido getPartido() { return this.partido; }
 
-    public Eleitor getEleitor() {
-        return this.eleitor;
-    }
+    public Eleicao getEleicao() { return this.eleicao; }
 
-    public void setEleitor(Eleitor eleitor) {
-        this.eleitor = eleitor;
-    }
-
-    public Partido getPartido() {
-        return this.partido;
-    }
-
-    public void setPartido(Partido partido) {
-        this.partido = partido;
-    }
-
-    public Eleicao getEleicao() {
-        return this.eleicao;
-    }
-
-    public void setEleicao(Eleicao eleicao) {
-        this.eleicao = eleicao;
-    }
-
-    public Integer getNumero() {
-        return this.numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
+    public Candidato getCandidato() { return this.candidato; }
 
 }

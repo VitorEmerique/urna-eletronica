@@ -28,10 +28,11 @@ public class CreateTables {
                     "CREATE TABLE IF NOT EXISTS eleicao ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR, data VARCHAR)");
 
             statement.execute(
-                    "CREATE TABLE IF NOT EXISTS voto ( id INTEGER not NULL PRIMARY KEY, id_eleitor INTEGER, id_partido INTEGER,"
+                    "CREATE TABLE IF NOT EXISTS voto ( id INTEGER not NULL PRIMARY KEY, id_eleitor INTEGER, id_candidato, id_partido INTEGER,"
                             +
-                            "id_eleicao, numero INTEGER, foreign key(id_eleitor) references eleitor(id)," +
+                            "id_eleicao, foreign key(id_eleitor) references eleitor(id)," +
                             "foreign key(id_partido) references partido(id)," +
+                            "foreign key(id_candidato) references candidato(id)," +
                             "foreign key(id_eleicao) references eleicao(id))");
 
             conn.close();

@@ -2,8 +2,10 @@ package com.ufopinha.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.ufopinha.models.Candidato;
+import com.ufopinha.models.Cargo;
 
 public class CandidatoDAO extends EleitorDAO {
     public void register(Candidato candidato)  throws Exception { 
@@ -24,6 +26,25 @@ public class CandidatoDAO extends EleitorDAO {
 
     }
 
+    public Candidato getByNumero(Integer numero) throws Exception {
+        Connection conn = this.database.connect();
+
+        PreparedStatement statement = conn.prepareStatement("select * from  candidato, eleitor, pessoa where candidato.id = eleitor.id and candidato.id = pessoa.id and candidato.numero = (?)");
+
+        statement.setInt(1, numero);
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+
+        Candidato candidato = new Candidato(result.getInt(1),
+        result.getString(10), result.getString(11), result.getString(6), result.getInt(7),
+        result.getInt(8), result.getInt(2));
+
+        conn.close();
+
+        return candidato;
+
+    }
 }
 
 

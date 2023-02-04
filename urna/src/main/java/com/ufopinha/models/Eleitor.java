@@ -4,6 +4,14 @@ public class Eleitor extends Pessoa {
     private String titulo;
     private Integer zona, secao;
 
+    public Eleitor(Integer id, String nome, String cpf, String titulo, Integer zona, Integer secao) {
+        super(id, nome, cpf);
+        this.titulo = titulo;
+        this.zona = zona;
+        this.secao = secao;
+
+    }
+
     public Eleitor(String nome, String cpf, String titulo, Integer zona, Integer secao) {
         super(nome, cpf);
         this.titulo = titulo;
