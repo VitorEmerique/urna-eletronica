@@ -1,15 +1,19 @@
 package com.ufopinha.controllers;
 
+import java.nio.channels.InterruptibleChannel;
+
 import com.ufopinha.daos.CandidatoDAO;
 import com.ufopinha.daos.CargoDAO;
 import com.ufopinha.daos.EleicaoDAO;
 import com.ufopinha.daos.EleitorDAO;
 import com.ufopinha.daos.PartidoDAO;
+import com.ufopinha.daos.VotoDAO;
 import com.ufopinha.models.Candidato;
 import com.ufopinha.models.Cargo;
 import com.ufopinha.models.Eleicao;
 import com.ufopinha.models.Eleitor;
 import com.ufopinha.models.Partido;
+import com.ufopinha.models.Voto;
 
 public class Administrador {
     private PartidoDAO partidoDao;
@@ -17,6 +21,7 @@ public class Administrador {
     private EleitorDAO eleitorDao;
     private CandidatoDAO candidatoDao;
     private EleicaoDAO eleicaoDAO;
+    private VotoDAO votoDAO;
 
     public Administrador() {
         this.partidoDao = new PartidoDAO();
@@ -24,6 +29,7 @@ public class Administrador {
         this.eleitorDao = new EleitorDAO();
         this.candidatoDao = new CandidatoDAO();
         this.eleicaoDAO = new EleicaoDAO();
+        this.votoDAO = new VotoDAO();
 
     }
 
@@ -67,6 +73,16 @@ public class Administrador {
     public void registraEleicao(String nome) {
         try {
             this.eleicaoDAO.register(new Eleicao(nome));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void registraVoto(Integer numero, Integer id_eleitor, Integer id_partido, Integer id_eleicao) {
+        try {
+            this.votoDAO.register(new Voto(eleitorDao.getEleicaoById(id_eleitor),
+                    partidoDao.getPartidoByNumero(id_partido), eleicaoDAO.getEleicaoById(id_eleicao), numero));
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

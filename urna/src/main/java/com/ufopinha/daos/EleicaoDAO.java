@@ -38,4 +38,22 @@ public class EleicaoDAO {
         return id;
     }
 
+    public Eleicao getEleicaoById(Integer id) throws Exception {
+        Connection conn = this.database.connect();
+
+        PreparedStatement statement = conn.prepareStatement("select * from eleicao where id = (?)");
+
+        statement.setInt(1, id);
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+
+        Eleicao eleicao = new Eleicao(result.getString("nome"));
+
+        conn.close();
+
+        return eleicao;
+
+    }
+
 }

@@ -27,6 +27,13 @@ public class CreateTables {
             statement.execute(
                     "CREATE TABLE IF NOT EXISTS eleicao ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR, data VARCHAR)");
 
+            statement.execute(
+                    "CREATE TABLE IF NOT EXISTS voto ( id INTEGER not NULL PRIMARY KEY, id_eleitor INTEGER, id_partido INTEGER,"
+                            +
+                            "id_eleicao, numero INTEGER, foreign key(id_eleitor) references eleitor(id)," +
+                            "foreign key(id_partido) references partido(id)," +
+                            "foreign key(id_eleicao) references eleicao(id))");
+
             conn.close();
 
         } catch (Exception e) {
