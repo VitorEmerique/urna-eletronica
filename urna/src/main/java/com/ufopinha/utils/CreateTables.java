@@ -15,7 +15,7 @@ public class CreateTables {
                         "CREATE TABLE IF NOT EXISTS eleitor ( id INTEGER not NULL PRIMARY KEY, titulo VARCHAR unique, zona INTEGER, secao INTEGER, foreign key(id) references pessoa(id) ON DELETE CASCADE )");
          
             statement.execute("CREATE TABLE IF NOT EXISTS cargo ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR )");
-            statement.execute("CREATE TABLE IF NOT EXISTS partido ( id INTEGER not NULL PRIMARY KEY, numero INTEGER, nome VARCHAR )");
+            statement.execute("CREATE TABLE IF NOT EXISTS partido ( id INTEGER not NULL PRIMARY KEY, numero INTEGER unique, nome VARCHAR )");
     
             statement.execute("CREATE TABLE IF NOT EXISTS " +
                         "candidato ( id INTEGER not NULL PRIMARY KEY, nome VARCHAR,numero INTEGER unique, " +

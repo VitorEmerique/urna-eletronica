@@ -31,10 +31,10 @@ public class Administrador {
         
     }
 
-    /*public registrarCandidato(String nome, String cpf, String titulo, Integer zona, Integer secao, Integer numero, Cargo cargo, Partido partido) {
+    /*public void registrarCandidato(String nome, String cpf, String titulo, Integer zona, Integer secao, Integer numero, Cargo cargo, Partido partido) {
         CandidatoDAO candidatoDao = new CandidatoDAO();
         
-        candidatoDao.create();
+        candidatoDao.register();
 
     }*/
 
