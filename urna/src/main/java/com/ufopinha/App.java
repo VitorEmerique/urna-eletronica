@@ -46,8 +46,8 @@ public class App extends Application {
 
         CreateTables.createTables();
 
-        administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
-        administrador.registrarPartido("partidao do mingao", 3);
+        //administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
+        administrador.registrarPartido("partidao do mingao", 22);
 
         //administrador.registrarCandidato("luc", "123", "456", 22, 33);
 
@@ -55,18 +55,10 @@ public class App extends Application {
         administrador.registrarCargo("Governador");
         administrador.registrarCargo("Senador");
         administrador.registrarCargo("Deputado Federal");
-        administrador.registrarCargo("Deputado Estadual");
+        administrador.registrarCargo("Deputado Estadual"); 
 
-        PartidoDAO p = new PartidoDAO();
-        
-        try {
-            Partido partido = p.getPartidoByNumero(3); 
-            System.out.println(partido.getNome());
-        
-        } catch (Exception e) { System.out.println(e); } 
+        administrador.registrarCandidato("biroliro", "taok", "hghgh", 22, 33, 22, 1, 22);
 
-        
-        
         System.out.println("Hello!");
         // launch();
     }

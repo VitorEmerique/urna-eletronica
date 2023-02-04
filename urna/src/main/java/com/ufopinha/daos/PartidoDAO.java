@@ -35,7 +35,7 @@ public class PartidoDAO {
 
         ResultSet result = statement.getResultSet();
 
-        Partido partido = new Partido(result.getString("nome"), result.getInt("numero"));
+        Partido partido = new Partido(result.getString("nome"), result.getInt("numero"), result.getInt("id"));
 
         conn.close();
 

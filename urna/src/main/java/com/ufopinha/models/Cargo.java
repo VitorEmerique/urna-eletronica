@@ -8,6 +8,11 @@ public class Cargo {
         this.nome = nome;
     }
 
+    public Cargo(String nome, Integer id) {
+        this.nome = nome;
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }

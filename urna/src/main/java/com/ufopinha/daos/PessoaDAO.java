@@ -14,15 +14,13 @@ public class PessoaDAO {
     public PessoaDAO() { this.database = new SQLiteConnection(); }
 
     public Integer register(Pessoa pessoa) throws Exception {
-        PreparedStatement statement;
-
-        System.out.println("aq2");
-
         Connection conn = database.connect();
 
-        statement = conn.prepareStatement("insert into pessoa (nome, cpf) values (?, ?)", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = conn.prepareStatement("insert into pessoa (nome, cpf) values (?, ?)", Statement.RETURN_GENERATED_KEYS);
+
         statement.setString(1, pessoa.getNome());
         statement.setString(2, pessoa.getCpf());
+        
         statement.execute();
 
         ResultSet result = statement.getGeneratedKeys();
