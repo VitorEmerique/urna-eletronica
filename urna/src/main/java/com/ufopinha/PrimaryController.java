@@ -25,10 +25,12 @@ public class PrimaryController {
     @FXML
     private void autenticaEleitor() throws IOException {
         try {
+
             String cpf1 = cpf.getText();
             String titulo1 = titulo.getText();
             Mesario m = new Mesario();
             Eleitor e = m.autenticaEleitor(titulo1);
+
         } catch (Exception e) {
             System.out.println(e);
         }

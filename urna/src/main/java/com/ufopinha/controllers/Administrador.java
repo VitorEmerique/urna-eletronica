@@ -76,17 +76,4 @@ public class Administrador {
         }
     }
 
-    public void registrarVoto(String titulo, int numero) {
-        try {
-            votoDAO.register(new Voto(eleitorDao.getEleitorByTitulo(titulo), 
-            candidatoDao.getByNumero(numero), 
-            partidoDao.getPartidoByNumero(numero)));
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-
-    }
-
 }
