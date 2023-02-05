@@ -1,7 +1,5 @@
 package com.ufopinha.controllers;
 
-import java.nio.channels.InterruptibleChannel;
-
 import com.ufopinha.daos.CandidatoDAO;
 import com.ufopinha.daos.CargoDAO;
 import com.ufopinha.daos.EleicaoDAO;
@@ -80,7 +78,9 @@ public class Administrador {
 
     public void registrarVoto(String titulo, int numero) {
         try {
-            votoDAO.register(new Voto(eleitorDao.getEleitorByTitulo(titulo), candidatoDao.getByNumero(numero), partidoDao.getPartidoByNumero(numero)));
+            votoDAO.register(new Voto(eleitorDao.getEleitorByTitulo(titulo), 
+            candidatoDao.getByNumero(numero), 
+            partidoDao.getPartidoByNumero(numero)));
 
         } catch (Exception e) {
             System.out.println(e);

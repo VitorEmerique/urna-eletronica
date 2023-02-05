@@ -7,19 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Statement;
+
 
 import com.ufopinha.controllers.Administrador;
-import com.ufopinha.daos.PartidoDAO;
-import com.ufopinha.models.Eleicao;
-import com.ufopinha.models.Partido;
+import com.ufopinha.controllers.Mesario;
+import com.ufopinha.daos.EleitorDAO;
+import com.ufopinha.models.Eleitor;
 import com.ufopinha.utils.CreateTables;
-import com.ufopinha.utils.SQLiteConnection;
 
-/**
- * JavaFX App
- */
+
 public class App extends Application {
 
     private static Scene scene;
@@ -44,6 +40,7 @@ public class App extends Application {
         System.out.println("Hello World!");
 
         Administrador administrador = new Administrador();
+        Mesario mesario = new Mesario();
 
         CreateTables.createTables();
 
@@ -71,7 +68,9 @@ public class App extends Application {
         administrador.registrarVoto("987", 13);
         administrador.registrarVoto("243", 22);
 
-        // launch();
+        mesario.autenticaEleitor("243");
+
+        launch();
     }
 
 }

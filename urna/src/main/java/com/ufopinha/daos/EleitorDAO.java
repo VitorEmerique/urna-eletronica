@@ -48,4 +48,5 @@ public class EleitorDAO extends PessoaDAO {
         return eleitor;
 
     }
+
 }
