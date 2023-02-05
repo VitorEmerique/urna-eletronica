@@ -11,6 +11,7 @@ public class Mesario {
     }
 
     public Eleitor autenticaEleitor(String titulo) {
+        System.out.println("sla fei");
         try { return eleitorDAO.getEleitorByTitulo(titulo); }
         catch (Exception e) { return null; }
 

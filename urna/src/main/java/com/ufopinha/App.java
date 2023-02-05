@@ -22,7 +22,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("mesario"));
         stage.setScene(scene);
         stage.show();
     }
@@ -68,7 +68,7 @@ public class App extends Application {
         administrador.registrarVoto("987", 13);
         administrador.registrarVoto("243", 22);
 
-        mesario.autenticaEleitor("243");
+        //mesario.autenticaEleitor("243");
 
         launch();
     }
