@@ -47,6 +47,7 @@
             <Button fx:id="login" layoutX="295.0" layoutY="210.0" mnemonicParsing="false" onAction="#autenticaEleitor" text="Login" />
             <TextField fx:id="cpf" layoutX="246.0" layoutY="79.0" />
             <TextField fx:id="titulo" layoutX="246.0" layoutY="120.0" />
+            <Button fx:id="registrar" layoutX="288.0" layoutY="286.0" mnemonicParsing="false" onAction="#switchToRegister" text="Registrar" />
       </children>
     </AnchorPane>
   </children>

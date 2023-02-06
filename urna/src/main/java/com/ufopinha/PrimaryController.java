@@ -19,10 +19,18 @@ public class PrimaryController {
     public static String t;
 
     @FXML
+    private Button resgistrar;
+
+    @FXML
     public String nome() {
 
         return t;
 
+    }
+
+    @FXML
+    private void switchToRegister() throws IOException {
+        App.setRoot("register");
     }
 
     @FXML
