@@ -47,7 +47,7 @@ public class urnaController implements Initializable {
     Eleitor eleitor;
 
     @FXML
-    private void confirmaVoto() {
+    private void confirmaVoto() throws IOException {
 
         String numero = numeroField.getText();
         int num = Integer.parseInt(numero);
@@ -55,6 +55,7 @@ public class urnaController implements Initializable {
         Urna urna = new Urna();
         urna.registrarVoto(titulo, num);
         System.out.println(PrimaryController.t);
+        switchToPrimary();
 
     }
 
