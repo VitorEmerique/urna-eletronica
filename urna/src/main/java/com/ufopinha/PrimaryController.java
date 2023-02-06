@@ -16,10 +16,18 @@ public class PrimaryController {
     private TextField titulo;
     @FXML
     private Button login;
+    public static String t;
+
+    @FXML
+    public String nome() {
+
+        return t;
+
+    }
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        App.setRoot("urna");
     }
 
     @FXML
@@ -28,8 +36,13 @@ public class PrimaryController {
 
             String cpf1 = cpf.getText();
             String titulo1 = titulo.getText();
+            t = titulo1;
             Mesario m = new Mesario();
+
             Eleitor e = m.autenticaEleitor(titulo1);
+            if (e != null) {
+                switchToSecondary();
+            }
 
         } catch (Exception e) {
             System.out.println(e);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufopinha.urnaController">
+   <children>
+      <Button fx:id="btnsete" layoutX="223.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="7" />
+      <Button fx:id="btnoito" layoutX="311.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="8" />
+      <Button fx:id="btnove" layoutX="394.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="9" />
+      <Button fx:id="btnquatro" layoutX="223.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="4" />
+      <Button fx:id="btncinco" layoutX="311.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="5" />
+      <Button fx:id="btnseis" layoutX="394.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="6" />
+      <Button fx:id="btnum" layoutX="223.0" layoutY="287.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="1" />
+      <Button fx:id="btndois" layoutX="311.0" layoutY="287.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="2" />
+      <Button fx:id="btntres" layoutX="394.0" layoutY="287.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="3" />
+      <Button fx:id="btnconfirma" layoutX="223.0" layoutY="339.0" mnemonicParsing="false" onAction="#confirmaVoto" text="Confirmar" />
+      <Button fx:id="btnzero" layoutX="311.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="0" />
+      <Button fx:id="btncorrige" layoutX="394.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Corrigir" />
+      <Button fx:id="btnsair" layoutX="311.0" layoutY="380.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Sair" />
+      <TextField fx:id="numeroField" layoutX="219.0" layoutY="121.0" prefHeight="25.0" prefWidth="231.0" />
+   </children>
+</Pane>

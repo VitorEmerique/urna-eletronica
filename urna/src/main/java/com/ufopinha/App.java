@@ -8,13 +8,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 import com.ufopinha.controllers.Administrador;
 import com.ufopinha.controllers.Mesario;
+import com.ufopinha.controllers.Urna;
 import com.ufopinha.daos.EleitorDAO;
 import com.ufopinha.models.Eleitor;
 import com.ufopinha.utils.CreateTables;
-
 
 public class App extends Application {
 
@@ -41,11 +40,12 @@ public class App extends Application {
 
         Administrador administrador = new Administrador();
         Mesario mesario = new Mesario();
+        Urna urna = new Urna();
 
         CreateTables.createTables();
 
         // administrador.registrarEleitor("luca", "abfdafc", "4565", 22, 33);
-        
+
         administrador.registrarPartido("partidao do mingao", 22);
         administrador.registrarPartido("pt partido da", 13);
 
@@ -65,10 +65,10 @@ public class App extends Application {
 
         administrador.registraEleicao("eleicao top 2032");
 
-        administrador.registrarVoto("987", 13);
-        administrador.registrarVoto("243", 22);
+        // urna.registrarVoto("987", 13);
+        // urna.registrarVoto("243", 22);
 
-        //mesario.autenticaEleitor("243");
+        // mesario.autenticaEleitor("243");
 
         launch();
     }
