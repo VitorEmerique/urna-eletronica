@@ -12,6 +12,7 @@ import com.ufopinha.controllers.Administrador;
 import com.ufopinha.controllers.Mesario;
 import com.ufopinha.controllers.Urna;
 import com.ufopinha.daos.EleitorDAO;
+import com.ufopinha.daos.VotoDAO;
 import com.ufopinha.models.Eleitor;
 import com.ufopinha.utils.CreateTables;
 
@@ -71,6 +72,19 @@ public class App extends Application {
         // mesario.autenticaEleitor("243");
 
         launch();
+
+        VotoDAO v = new VotoDAO();
+
+        try {
+            v.apurarVotos();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        
+
+
+
     }
 
 }

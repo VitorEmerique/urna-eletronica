@@ -2,6 +2,7 @@ package com.ufopinha.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.ufopinha.models.Voto;
 import com.ufopinha.utils.SQLiteConnection;
@@ -26,6 +27,27 @@ public class VotoDAO {
         statement.execute();
 
         conn.close();
+
+    }
+
+    public void apurarVotos() throws Exception {
+        Connection conn = this.database.connect();
+
+        PreparedStatement statement = conn
+                .prepareStatement("select count(id_candidato), pessoa.nome from voto " +  
+                "JOIN candidato on candidato.id = voto.id_candidato " +
+                "JOIN pessoa on pessoa.id = candidato.id " +
+                "GROUP by voto.id_candidato");    
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+
+        while (result.next()) {
+            String lastName = result.getString(2);
+            Integer qtdVoto = result.getInt(1);
+            System.out.println(lastName + ' ' + qtdVoto);
+          }
 
     }
     
